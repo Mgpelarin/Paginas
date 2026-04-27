@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Calculadora</title>
+
+<style>
+    body {
+        background-color: #4e4e4e;
+        font-family: Arial, Helvetica, sans-serif;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .calculadora {
+        background-color: #222;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 10px 25px rgba(0,0,0,0.3);
+    }
+
+    .display {
+        width: 95%;
+        height: 50px;
+        margin-bottom: 15px;
+        font-size: 22px;
+        text-align: right;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+
+        background: #bdbbbb;
+        color: #000;
+    }
+
+    .botoes {
+        display: grid;
+        grid-template-columns: repeat(4, 60px);
+        gap: 10px;
+    }
+
+    button {
+        height: 50px;
+        font-size: 18px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .num {
+        background-color: #444;
+        color: white;
+    }
+
+    .op {
+        background-color: rgb(184, 119, 0);
+        color: white;
+    }
+
+    .igual {
+        background-color: green;
+        color: white;
+    }
+
+    .clear {
+        background-color: red;
+        color: white;
+        grid-column: span 2; /* ocupa 2 colunas */
+    }
+
+    .back {
+        background-color: #ccc;
+        grid-column: span 2; /* ocupa 2 colunas */
+    }
+</style>
+</head>
+<body>
+
+<div class="calculadora">
+
+    <input type="text" id="display" class="display" disabled>
+
+    <div class="botoes">
+
+        <!-- Linha topo -->
+        <button class="clear" onclick="limpar()">C</button>
+        <button class="back" onclick="apagar()">←</button>
+
+        <!-- Linha 1 -->
+        <button class="num" onclick="add('7')">7</button>
+        <button class="num" onclick="add('8')">8</button>
+        <button class="num" onclick="add('9')">9</button>
+        <button class="op" onclick="add('/')">/</button>
+
+        <!-- Linha 2 -->
+        <button class="num" onclick="add('4')">4</button>
+        <button class="num" onclick="add('5')">5</button>
+        <button class="num" onclick="add('6')">6</button>
+        <button class="op" onclick="add('*')">*</button>
+
+        <!-- Linha 3 -->
+        <button class="num" onclick="add('1')">1</button>
+        <button class="num" onclick="add('2')">2</button>
+        <button class="num" onclick="add('3')">3</button>
+        <button class="op" onclick="add('-')">-</button>
+
+        <!-- Linha 4 -->
+        <button class="num" onclick="add('0')">0</button>
+        <button class="num" onclick="add('.')">.</button>
+        <button class="igual" onclick="calcular()">=</button>
+        <button class="op" onclick="add('+')">+</button>
+
+    </div>
+</div>
+
+<script>
+    function add(valor) {
+        document.getElementById("display").value += valor;
+    }
+
+    function limpar() {
+        document.getElementById("display").value = "";
+    }
+
+    function apagar() {
+        let display = document.getElementById("display");
+        display.value = display.value.slice(0, -1);
+    }
+
+    function calcular() {
+        let display = document.getElementById("display");
+
+        try {
+            display.value = eval(display.value);
+        } catch {
+            display.value = "Erro";
+        }
+    }
+</script>
+
+</body>
+</html>

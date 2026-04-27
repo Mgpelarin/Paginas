@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Menu de Navegação</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #2f2f2f;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .menu {
+        background: #222;
+        padding: 40px;
+        border-radius: 12px;
+        text-align: center;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    }
+
+    h1 {
+        color: white;
+        margin-bottom: 30px;
+    }
+
+    button {
+        display: block;
+        width: 250px;
+        margin: 10px auto;
+        padding: 15px;
+        font-size: 18px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    button:hover {
+        transform: scale(1.05);
+    }
+
+    .btn1 { background: #3498db; color: white; }
+    .btn2 { background: #e67e22; color: white; }
+    .btn3 { background: #2ecc71; color: white; }
+</style>
+</head>
+<body>
+
+<div class="menu">
+    <h1>Escolha uma página</h1>
+
+    <!-- Botão 1 -->
+    <button class="btn1" onclick="ir('animal.html')">
+        Página Animal
+    </button>
+
+    <!-- Botão 2 -->
+    <button class="btn2" onclick="ir('carta.html')">
+        Carta
+    </button>
+
+    <!-- Botão 3 -->
+    <button class="btn3" onclick="ir('calculadora.html')">
+        Calculadora
+    </button>
+</div>
+
+<script>
+    function ir(pagina) {
+        window.location.href = pagina;
+    }
+</script>
+
+</body>
+</html>
